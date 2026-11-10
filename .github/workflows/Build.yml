@@ -24,14 +24,14 @@ jobs:
       - name: Descomprimir proyecto
         run: |
           unzip -q Lumina-Android-ready.zip -d project
-          chmod +x project/gradlew
+          chmod +x project/LuminaGallery/gradlew
 
       - name: Compilar APK
         run: |
-          cd project
+          cd project/LuminaGallery
           ./gradlew assembleDebug
 
       - uses: actions/upload-artifact@v4
         with:
           name: Lumina-APK
-          path: project/app/build/outputs/apk/debug/*.apk
+          path: project/LuminaGallery/app/build/outputs/apk/debug/*.apk
